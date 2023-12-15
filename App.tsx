@@ -7,15 +7,15 @@
 
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
-import ToDo from "./app/screens/toDo";
 import { Provider } from "react-redux";
 import { store } from "./app/redux/store";
+import MainStackNavigation from "./app/navigation/MainStackNavigation";
 
 function App(): React.JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       <Provider store={store}>
-        <ToDo />
+        <MainStackNavigation />
       </Provider>
     </SafeAreaView>
   );
@@ -24,6 +24,7 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "white",
   },
 });
 
