@@ -4,4 +4,5 @@
 export enum ROUTES {
   Home = "Home",
   ToDo = "ToDo",
+  Login = "Login",
 }

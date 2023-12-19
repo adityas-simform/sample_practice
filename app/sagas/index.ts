@@ -1,5 +1,5 @@
-import { all, fork } from 'redux-saga/effects';
-import { getTodos } from './todoSaga';
+import { all, fork } from "redux-saga/effects";
+import { getTodos } from "./TodoSaga";
 
 /**
  * The root saga for the application.
