@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Text, View, TextInput, Pressable, FlatList } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import styles from "./todoStyles";
-import { addTodo, removeTodo } from "../../redux/todoSlice";
+import { RootState } from "../../redux/Store";
+import styles from "./TodoStyle";
+import { addTodo, removeTodo } from "../../redux/TodoSlice";
 
 export const ToDo = () => {
   const [todoVal, setTodoVal] = useState("");

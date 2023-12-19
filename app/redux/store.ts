@@ -1,5 +1,5 @@
 import { Tuple, configureStore } from "@reduxjs/toolkit";
-import todoReducer from "./todoSlice";
+import todoReducer from "./TodoSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../sagas";
 

@@ -8,7 +8,7 @@
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { Provider } from "react-redux";
-import { store } from "./app/redux/store";
+import { store } from "./app/redux/Store";
 import MainStackNavigation from "./app/navigation/MainStackNavigation";
 
 function App(): React.JSX.Element {
