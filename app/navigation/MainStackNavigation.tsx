@@ -16,8 +16,8 @@ const MainStackNavigation = () => {
           headerShown: false,
         }}
       >
-        <RootStack.Screen name={ROUTES.Login} component={Login} />
         <RootStack.Screen name={ROUTES.ToDo} component={ToDo} />
+        <RootStack.Screen name={ROUTES.Login} component={Login} />
       </RootStack.Navigator>
     </NavigationContainer>
   );

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import { Text, View, TextInput, Pressable, FlatList } from "react-native";
+import React, { useRef, useState } from "react";
+import { Text, View, TextInput, Pressable } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/Store";
 import styles from "./TodoStyle";
 import { addTodo, removeTodo } from "../../redux/TodoSlice";
+import ToDoList from "./ToDoList";
 
 export const ToDo = () => {
   const [todoVal, setTodoVal] = useState("");
+  const todoListRef = useRef();
   const todoList = useSelector((state: RootState) => state.todo.todoList);
   const dispatch = useDispatch();
 
@@ -21,15 +23,8 @@ export const ToDo = () => {
     dispatch(removeTodo(id));
   };
 
-  const renderItem = ({ item }: any) => {
-    return (
-      <View style={styles.listItem}>
-        <Text>{item.text}</Text>
-        <Text onPress={() => onCrossPress(item.id)} style={styles.cross}>
-          X
-        </Text>
-      </View>
-    );
+  const onScrollBottomPress = () => {
+    todoListRef?.current?.scrollToBottom();
   };
 
   return (
@@ -45,11 +40,16 @@ export const ToDo = () => {
       <Pressable onPress={() => onAddPress()} style={styles.addBtnStyle}>
         <Text style={styles.add}>ADD</Text>
       </Pressable>
-      <FlatList
-        style={styles.flatlist}
-        data={todoList}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+      <Pressable
+        onPress={() => onScrollBottomPress()}
+        style={styles.addBtnStyle}
+      >
+        <Text style={styles.add}>Scroll To Bottom</Text>
+      </Pressable>
+      <ToDoList
+        onCrossPress={(id: string) => onCrossPress(id)}
+        ref={todoListRef}
+        todoList={todoList}
       />
     </View>
   );
