@@ -25,7 +25,7 @@ const Login = () => {
         value={values.password}
       />
       <Text>{errors.password}</Text>
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+      <TouchableOpacity style={styles.button} onPress={() => handleSubmit()}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
     </View>
