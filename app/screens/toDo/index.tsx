@@ -1,16 +1,18 @@
 import React, { useRef, useState } from "react";
 import { Text, View, TextInput, Pressable } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/Store";
+import { AppDispatch, RootState } from "../../redux/Store";
 import styles from "./TodoStyle";
 import { addTodo, removeTodo } from "../../redux/TodoSlice";
-import ToDoList from "./ToDoList";
+import ToDoList, { ToDoListprops } from "./ToDoList";
 
 export const ToDo = () => {
   const [todoVal, setTodoVal] = useState("");
-  const todoListRef = useRef();
+  const todoListRef = useRef<ToDoListprops & { scrollToBottom: () => void }>(
+    null
+  );
   const todoList = useSelector((state: RootState) => state.todo.todoList);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const onAddPress = () => {
     if (todoVal !== "") {

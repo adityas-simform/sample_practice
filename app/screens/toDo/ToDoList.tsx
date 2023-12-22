@@ -2,13 +2,18 @@ import { View, Text, FlatList } from "react-native";
 import React, { forwardRef, useImperativeHandle, useRef } from "react";
 import styles from "./TodoStyle";
 
-interface ToDoListprops {
+export interface ToDoListprops {
   todoList: any;
   onCrossPress: (id: string) => void;
 }
 
+interface TodoItem {
+  text: string;
+  id: string;
+}
+
 const ToDoList = forwardRef((props: ToDoListprops, ref) => {
-  const flatListRef = useRef(null);
+  const flatListRef = useRef<FlatList | null>(null);
 
   useImperativeHandle(ref, () => ({
     scrollToBottom: () => {
@@ -16,12 +21,12 @@ const ToDoList = forwardRef((props: ToDoListprops, ref) => {
     },
   }));
 
-  const renderItem = ({ item }: any) => {
+  const renderItem = ({ item }: { item: TodoItem }) => {
     return (
       <View style={styles.listItem}>
         <Text>{item.text}</Text>
         <Text onPress={() => props?.onCrossPress(item.id)} style={styles.cross}>
-          X
+          Delete
         </Text>
       </View>
     );

@@ -1,9 +1,9 @@
-import { Tuple, configureStore } from "@reduxjs/toolkit";
+import { Middleware, configureStore } from "@reduxjs/toolkit";
 import todoReducer from "./TodoSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../sagas";
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware<Middleware>();
 const middleware = [sagaMiddleware];
 
 export const store = configureStore({

@@ -28,9 +28,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    height: 150,
+    height: 100,
     marginVertical: 20,
-    backgroundColor: "red",
     width: 300,
   },
   cross: {
