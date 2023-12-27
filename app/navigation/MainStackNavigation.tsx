@@ -5,6 +5,7 @@ import { ROUTES } from "../constants/NavigationRoutes";
 import ToDo from "../screens/ToDo";
 import Login from "../screens/Login";
 import { navigationRef } from "../utils/NavigatorUtils";
+import Home from "../screens/home";
 
 const RootStack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ const MainStackNavigation = () => {
           headerShown: false,
         }}
       >
+        <RootStack.Screen name={ROUTES.Home} component={Home} />
         <RootStack.Screen name={ROUTES.ToDo} component={ToDo} />
         <RootStack.Screen name={ROUTES.Login} component={Login} />
       </RootStack.Navigator>
