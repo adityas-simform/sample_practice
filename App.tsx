@@ -6,18 +6,18 @@
  */
 
 import React from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import { Provider } from "react-redux";
 import { store } from "./app/redux/Store";
 import MainStackNavigation from "./app/navigation/MainStackNavigation";
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Provider store={store}>
         <MainStackNavigation />
       </Provider>
-    </SafeAreaView>
+    </View>
   );
 }
 

@@ -1,15 +1,17 @@
-import { Middleware, configureStore } from "@reduxjs/toolkit";
+import { Middleware, combineReducers, configureStore } from "@reduxjs/toolkit";
 import todoReducer from "./TodoSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../sagas";
+import refreshSlice from "./RefreshSlice";
 
 const sagaMiddleware = createSagaMiddleware<Middleware>();
 const middleware = [sagaMiddleware];
 
 export const store = configureStore({
-  reducer: {
+  reducer: combineReducers({
     todo: todoReducer,
-  },
+    refresh: refreshSlice,
+  }),
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(middleware),
 });
